@@ -17,23 +17,14 @@ public class AndroidMainLoginPage extends CommonPageObject implements MainPage {
     @FindBy(xpath = "//*[contains(@text,'I Already Have a Wix Account')]")
     private WebElement alreadyHavedButton;
 
-    @FindBy(xpath = "//*[contains(@text,'Thousands of personalized health and wellness options')]")
-    private WebElement title2;
+    @FindBy(xpath = "//*[contains(@text,'Create a Wix account to continue')]")
+    private WebElement createAnAccount;
 
-    @FindBy(xpath = "//*[contains(@text,'No more reimbursements - pay easily with your employer-funded card')]")
-    private WebElement title3;
+    @FindBy(xpath = "//*[contains(@text,'Continue with Google')]")
+    private WebElement continueWithGoogle;
 
-    @FindBy(xpath = "//*[contains(@text,'Tap to Reload')]")
-    private WebElement tapToReloadButton;
-
-    @FindBy(xpath = "//*[contains(@text,'Work email')]")
-    private WebElement loginUserMail;
-
-    @FindBy(xpath = "//*[contains(@text,'Password')]")
-    private WebElement loginPassword;
-
-    @FindBy(xpath = "//*[contains(@text,'Sign in')]")
-    private WebElement signInButton;
+    @FindBy(xpath = "//*[contains(@text,'Continue with Facebook')]")
+    private WebElement continueWithFacebook;
 
 
     public AndroidMainLoginPage(AndroidDriver driver) {
@@ -47,24 +38,17 @@ public class AndroidMainLoginPage extends CommonPageObject implements MainPage {
         verifyElementDisplayed("main title ", alreadyHavedButton);
     }
 
-
     @Override
-    public void verifyLoginPageIsShown() {
-        verifyElementDisplayed("Work email field", loginUserMail);
-        verifyElementDisplayed("Password field", loginPassword);
-        verifyElementDisplayed("Sign in button", signInButton);
-
+    public void userClickOnGetStarted() {
+        clickOnWebElement("Get Started", getStartedButton);
     }
 
-    @Override
-    public void userClicksOnContinueToSkip() {
-        verifyElementDisplayed("first title", alreadyHavedButton);
-        clickOnWebElement("Continue", getStartedButton);
-        verifyElementDisplayed("2nd title", title2);
-        clickOnWebElement("Continue", getStartedButton);
-        verifyElementDisplayed("3rd title", title3);
-        clickOnWebElement("Continue", getStartedButton);
 
+    @Override
+    public void verifyLetsGetStartedPageIsShown() {
+        verifyElementDisplayed("Let's get started", createAnAccount);
+        verifyElementDisplayed("Continue with Google", continueWithGoogle);
+        verifyElementDisplayed("Sign in button", continueWithFacebook);
     }
 
 }
