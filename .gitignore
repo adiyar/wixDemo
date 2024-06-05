@@ -1,0 +1,15 @@
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+test-output/SparkReport/Spark.html
+test-output/SparkReport/Spark.html
+test-output/SparkReport/Spark.html
+*.html
