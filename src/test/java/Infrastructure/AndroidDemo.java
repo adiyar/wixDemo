@@ -7,6 +7,8 @@ import io.appium.java_client.service.local.AppiumServiceBuilder;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -57,6 +59,7 @@ public class AndroidDemo {
         for (int driverStart = 0; driverStart < 3; driverStart++) {
             try {
                 driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+                new WebDriverWait(driver, Timeouts.WAIT_FOR_ELEMENT_TO_UPDATE).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@text,'No thanks')]"))).click();
                 return (AndroidDriver<WebElement>) driver;
             } catch (WebDriverException | MalformedURLException unsupportedCommandException) {
                 driver.quit();
